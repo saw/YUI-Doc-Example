@@ -1,8 +1,16 @@
 #!/bin/sh
+
+#first do the build (just copying files)
+mkdir build;
+cp -r myLib/* build/;
+
 # The location of your yuidoc install
 yuidoc_home=/Applications/yuidoc;
 
 mkdir -p doctmp/{parsertmp,docs};
+mkdir myDocs;
+
+
 
 # The location of the files to parse.  Parses subdirectories, but will fail if
 # there are duplicate file names in these directories.  You can specify multiple
@@ -32,7 +40,7 @@ yuiversion="3.0.0"
 $yuidoc_home/bin/yuidoc.py $parser_in -p $parser_out -o $generator_out -t $template -m 'YUI Doc Demo' -Y $yuiversion -v $version -u 'http://developer.yahoo.com';
 
 #copy it to the right place
-cp -r doctmp/docs myDocs/
+cp -r doctmp/docs/* myDocs/
 
 #clean out temp files
 rm -r doctmp

@@ -1,25 +1,28 @@
 <?xml version="1.0"?>
 
 <project name="SawLib">
-    <property name="builddir" location="build" />
-    <property name="projectname" location="YUI Doc Demo" />
-    <property name="version"  location="1.0" />
-    <property name="project_url" location="http://stephenwoods.net" />
+    <property name="build_dir" location="build" />
+    <property name="src" location="myLib" />
+    <property name="projectname" value="YUI Doc Demo" />
+    <property name="version"  value="1.0" />
+    <property name="project_url" value="http://developer.yahoo.com/yui/yuidoc" />
+    <property name="doc_dir" location="myDocs" />
     <property name="yuidoc_home" location="/Applications/yuidoc" />
     <property name="yuidoc_exec" location="${yuidoc_home}/bin/yuidoc.py" />
-    
+    <property name="tmp_dir" location="doctmp" />
+    <property name="parser_in" location="myLib" />
     <target name="init">
         <echo>Making sure build dir is there</echo>
-        <mkdir dir="${builddir}" />
+        <mkdir dir="${build_dir}" />
     </target>
     
     <target name="doc">
-        <mkdir dir="doctmp" />
-        <mkdir dir="doctmp/parsertmp" />
+        <mkdir dir="${tmp_dir}" />
+        <mkdir dir="${tmp_dir}/parsertmp" />
         
-        <property name="parser_in" location="myLib" />
-        <property name="parser_out" location="doctmp/parsertmp" />
-        <property name="generator_out" location="myDocs/docs" />
+        
+        <property name="parser_out" location="${tmp_dir}/parsertmp" />
+        <property name="generator_out" location="${doc_dir}" />
         <property name="template" location="template" />
         <property name="yuiversion" location="3.0.0" />
     
@@ -47,8 +50,7 @@
     
     <target name="build" depends="init,doc" description="A simple build file">
         <echo>Starting build</echo>
-        
-        <copy todir = "${builddir}">
+        <copy todir = "${build_dir}">
             <fileset  dir="myLib">
                 <exclude name = ".*" />
             </fileset>
@@ -60,7 +62,8 @@
     
     <target name="clean" description="Clean out build">
         <echo>Removing built files</echo>
-        <delete dir="${build}" />
-        <delete dir="${parser_out}" />
+        <delete dir="${build_dir}" />
+        <delete dir="${tmp_dir}" />
+        <delete dir="${doc_dir}" />
     </target>
 </project>
