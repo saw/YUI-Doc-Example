@@ -1,0 +1,10 @@
+This project demonstrates using YUI Doc as part of your build process.
+
+You can build this project with the shell script (build.sh) or apache ant (ant build). 
+
+To get it working you will need:
+
+apache ant 
+yuidoc
+
+Modify build.sh or build.xml so that yuidoc_home points to the location of your yui script.
