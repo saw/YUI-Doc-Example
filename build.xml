@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<project name="SawLib">
+    <property name="builddir" location="build" />
+    <property name="projectname" location="YUI Doc Demo" />
+    <property name="version"  location="1.0" />
+    
+    <target name="init">
+        <echo>Making sure build dir is there</echo>
+        <mkdir dir="${builddir}" />
+    </target>
+    
+    <target name="doc">
+        <property name="parser_in" location="myLib" />
+        <property name="parser_out" location="doctmp/parsertmp" />
+        <property name="generator_out" location="doctmp/docs" />
+        <property name="template" location="template" />
+        <property name="yuiversion" location="3.0.0" />
+        <property name="yuidoc_home" location="/Applications/yuidoc" />
+        <property name="yuidoc_exec" location="${yuidoc_home}/bin/yuidoc.py" />
+        
+        <echo>generating documentation</echo>
+        
+        <exec executable="${yuidoc_exec}">
+          <arg value="${parser_in}"/>
+          <arg value="-p"/>
+          <arg value="${parser_out}"/>
+          <arg value="-o" />
+          <arg value="${generator_out}" />
+          -t $template 
+          -m 'YUI Doc Demo' 
+          -Y "3.0.0b1" 
+          -v "0.0.1" 
+          -u 'http://developer.yahoo.com';
+        </exec>
+        
+    </target>
+    
+    <target name="build" depends="init,doc" description="A simple build file">
+        <echo>Starting build</echo>
+        
+        <copy todir = "${builddir}">
+            <fileset  dir="myLib">
+                <exclude name = ".*" />
+            </fileset>
+            <filterset>
+              <filter token="VERSION" value="${version}"/>
+            </filterset>
+        </copy>
+    </target>
+</project>

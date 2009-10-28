@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns:yui="http://yuilibrary.com/rdf/1.0/yui.rdf#">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>API: Compression   classmap.js  (YUI Library)</title>
+
+	<link rel="stylesheet" type="text/css" href="assets/reset-fonts-grids-min.css?stamp=1256271278.68" />
+	<link rel="stylesheet" type="text/css" href="assets/api.css?stamp=1256271278.68" />
+
+    <script type="text/javascript" src="assets/api-js?stamp=1256271278.68"></script>
+    <script type="text/javascript" src="assets/ac-js?stamp=1256271278.68"></script>
+</head>
+
+<body id="yahoo-com">
+
+<div id="doc3" class="yui-t2">
+	<div id="hd">
+        <h1><a href="http://developer.yahoo.com" title="YUI Doc Demo">YUI Doc Demo</a></h1>
+        <h3>Compression&nbsp; <span class="subtitle">0.0.1</span></h3>
+        <a href="./index.html" title="YUI Doc Demo">YUI Doc Demo</a> 
+            &gt; <a href="./module_compression.html" title="Compression">Compression</a>
+                
+                 &gt; classmap.js (source view) 
+        <form onsubmit="return false">
+            <div id="propertysearch">
+                Search: <input autocomplete="off" id="searchinput" />
+                <div id="searchresults">
+                    &nbsp;
+                </div>
+            </div>
+        </form>
+	</div>
+
+	<div id="bd">
+		<div id="yui-main">
+			<div class="yui-b">
+            <form action="#" name="yui-classopts-form" method="get" id="yui-classopts-form">
+                <fieldset>
+                    <legend>Filters</legend>
+                <span class="classopts"><input type="checkbox" name="show_private" id="show_private" /> <label for="show_private">Show Private</label></span>
+                <span class="classopts"><input type="checkbox" name="show_protected" id="show_protected" /> <label for="show_protected">Show Protected</label></span>
+                <span class="classopts"><input type="checkbox" name="show_deprecated" id="show_deprecated" /> <label for="show_deprecated">Show Deprecated</label></span>
+                </fieldset>
+            </form>
+
+                    <div id="srcout">
+                        <style>
+                            #doc3 .classopts { display:none; }
+                        </style>
+<div class="highlight"><pre><span class="nx">YAHOO</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">classMap</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;saw.lzw-binary&quot;</span><span class="o">:</span> <span class="s2">&quot;Compression&quot;</span><span class="o">,</span> <span class="s2">&quot;Y.Saw.Timepicker&quot;</span><span class="o">:</span> <span class="s2">&quot;widget&quot;</span><span class="o">,</span> <span class="s2">&quot;saw.lzw&quot;</span><span class="o">:</span> <span class="s2">&quot;Compression&quot;</span><span class="p">};</span>
+
+<span class="nx">YAHOO</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">resolveClass</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">className</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">a</span><span class="o">=</span><span class="nx">className</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span><span class="o">,</span> <span class="nx">ns</span><span class="o">=</span><span class="nx">YAHOO</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">classMap</span><span class="o">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">a</span><span class="p">.</span><span class="nx">length</span><span class="o">;</span> <span class="nx">i</span><span class="o">=</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">ns</span><span class="p">[</span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]])</span> <span class="p">{</span>
+            <span class="nx">ns</span> <span class="o">=</span> <span class="nx">ns</span><span class="p">[</span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]];</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">ns</span><span class="o">;</span>
+<span class="p">};</span>
+</pre></div>
+                    </div>
+			</div>
+		</div>
+		<div class="yui-b">
+            <div class="nav">
+
+                    <div id="moduleList" class="module">
+                        <h4>Modules</h4>
+                        <ul class="content">
+                                <li class="selected"><a href="module_Compression.html" title="Compression">Compression</a></li>
+                                <li class=""><a href="module_widget.html" title="widget">widget</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="classList" class="module">
+                        <h4>Classes</h4>
+                        <ul class="content">
+                                <li class=""><a href="saw.lzw.html" title="saw.lzw">saw.lzw</a></li>
+                                <li class=""><a href="saw.lzw-binary.html" title="saw.lzw-binary">saw.lzw-binary</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="fileList" class="module">
+                        <h4>Files</h4>
+                        <ul class="content">        
+                                <li class="selected"><a href="classmap.js.html" title="classmap.js">classmap.js</a></li>
+                                <li class=""><a href="lzw-lite.js.html" title="lzw-lite.js">lzw-lite.js</a></li>
+                                <li class=""><a href="lzw.js.html" title="lzw.js">lzw.js</a></li>
+                                <li class=""><a href="timepickerwidget.js.html" title="timepickerwidget.js">timepickerwidget.js</a></li>
+                        </ul>
+                    </div>
+
+
+
+
+
+            </div>
+		</div>
+	</div>
+	<div id="ft">
+        <hr />
+        Copyright &copy; 2009 Yahoo! Inc. All rights reserved.
+	</div>
+</div>
+<script type="text/javascript">
+    ALL_YUI_PROPS = [{"url": "saw.lzw-binary.html#method_encode", "access": "", "host": "saw.lzw-binary", "type": "method", "name": "encode"}, {"url": "saw.lzw.html#method_encode", "access": "", "host": "saw.lzw", "type": "method", "name": "encode"}, {"url": "saw.lzw-binary.html#method_strSize", "access": "", "host": "saw.lzw-binary", "type": "method", "name": "strSize"}, {"url": "saw.lzw.html#method_strSize", "access": "", "host": "saw.lzw", "type": "method", "name": "strSize"}];
+</script>
+</body>
+</html>
