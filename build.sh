@@ -22,14 +22,17 @@ generator_out=doctmp/docs;
 template=template
 
 projectname='YUI Doc Demo'
-version=
+version="0.0.1"
 
-yuiversion=3.0.0
+yuiversion="3.0.0"
 
 ##############################################################################
 # add -s to the end of the line to show items marked private
 
-$yuidoc_home/bin/yuidoc.py $parser_in -p $parser_out -o $generator_out -t $template -m 'YUI Doc Demo' -Y "3.0.0b1" -v "0.0.1" -u 'http://developer.yahoo.com';
+$yuidoc_home/bin/yuidoc.py $parser_in -p $parser_out -o $generator_out -t $template -m 'YUI Doc Demo' -Y $yuiversion -v $version -u 'http://developer.yahoo.com';
 
 #copy it to the right place
 cp -r doctmp/docs myDocs/
+
+#clean out temp files
+rm -r doctmp

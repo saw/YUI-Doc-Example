@@ -4,6 +4,9 @@
     <property name="builddir" location="build" />
     <property name="projectname" location="YUI Doc Demo" />
     <property name="version"  location="1.0" />
+    <property name="project_url" location="http://stephenwoods.net" />
+    <property name="yuidoc_home" location="/Applications/yuidoc" />
+    <property name="yuidoc_exec" location="${yuidoc_home}/bin/yuidoc.py" />
     
     <target name="init">
         <echo>Making sure build dir is there</echo>
@@ -11,14 +14,15 @@
     </target>
     
     <target name="doc">
+        <mkdir dir="doctmp" />
+        <mkdir dir="doctmp/parsertmp" />
+        
         <property name="parser_in" location="myLib" />
         <property name="parser_out" location="doctmp/parsertmp" />
-        <property name="generator_out" location="doctmp/docs" />
+        <property name="generator_out" location="myDocs/docs" />
         <property name="template" location="template" />
         <property name="yuiversion" location="3.0.0" />
-        <property name="yuidoc_home" location="/Applications/yuidoc" />
-        <property name="yuidoc_exec" location="${yuidoc_home}/bin/yuidoc.py" />
-        
+    
         <echo>generating documentation</echo>
         
         <exec executable="${yuidoc_exec}">
@@ -27,11 +31,16 @@
           <arg value="${parser_out}"/>
           <arg value="-o" />
           <arg value="${generator_out}" />
-          -t $template 
-          -m 'YUI Doc Demo' 
-          -Y "3.0.0b1" 
-          -v "0.0.1" 
-          -u 'http://developer.yahoo.com';
+          <arg value="-t" />
+          <arg value="${template}" />
+          <arg value="-m" />
+          <arg value="${projectname}" />
+          <arg value="-Y" />
+          <arg value="${yuiversion}" />
+          <arg value="-v" />
+          <arg value="${version}" />
+          <arg value="-u" />
+          <arg value="$project_url" />
         </exec>
         
     </target>
@@ -47,5 +56,11 @@
               <filter token="VERSION" value="${version}"/>
             </filterset>
         </copy>
+    </target>
+    
+    <target name="clean" description="Clean out build">
+        <echo>Removing built files</echo>
+        <delete dir="${build}" />
+        <delete dir="${parser_out}" />
     </target>
 </project>
